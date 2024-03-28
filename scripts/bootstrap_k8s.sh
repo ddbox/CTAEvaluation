@@ -9,6 +9,7 @@ yum install -y http://mirror.centos.org/centos/7/extras/x86_64/Packages/centos-r
 
 cd ~
 git clone https://gitlab.cern.ch/cta/CTA.git
+groupadd cta
 adduser -g cta cta
 pushd CTA/continuousintegration/buildtree_runner/vmBootstrap
 ./bootstrapSystem.sh cta
