@@ -11,6 +11,7 @@ cd ~
 git clone https://gitlab.cern.ch/cta/CTA.git
 groupadd cta
 adduser -g cta cta
+usermod -aG wheel cta
 pushd CTA/continuousintegration/buildtree_runner/vmBootstrap
 ./bootstrapSystem.sh cta
 popd
@@ -79,7 +80,7 @@ kubectl exec -i -t dnsutils -- nslookup kubernetes.default
 kubectl exec -i -t dnsutils -- nslookup www.cnn.com
 sleep 2
 
-sudo -u cta bash -c 'cd ~ ; git clone https://github.com/ericvaandering/CTAEvaluation.git'
+sudo -u cta bash -c 'cd ~ ; git clone https://github.com/ddbox/CTAEvaluation.git; cd CTAEvaluation; git checkout 4.28.24'
 sudo -u cta bash -c 'mkdir ~/.kube'
 
 cp /etc/kubernetes/admin.conf ~cta/.kube/config
